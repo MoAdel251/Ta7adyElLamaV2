@@ -1,9 +1,6 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches:
-      - qoder/general-session-xqw71q
   workflow_dispatch:
 
 permissions:
