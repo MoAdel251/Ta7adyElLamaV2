@@ -2060,8 +2060,7 @@ html[lang="ar"] .champion-box .lbl { letter-spacing: 0; text-transform: none; }
   .float-chip { padding: 8px 10px; }
   .chip-b { inset-inline-start: 0; }
   .chip-a { inset-inline-end: 0; }
-  .hero-trophy { width: 56px; height: 56px; inset-inline-start: 0; }
-  .hero-trophy .i { width: 24px; height: 24px; }
+  .hero-trophy { display: none; }
   .duel-score { font-size: 2rem; }
   .feature-strip { grid-template-columns: 1fr; }
   .hero-cta .btn { width: 100%; }
