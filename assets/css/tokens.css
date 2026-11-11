@@ -1,0 +1,124 @@
+/* ==========================================================================
+   MO ARENA — Design tokens
+   Shared visual language for Mo Games & Tahady El Lamma
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* Core palette */
+  --bg: #101522;
+  --bg-2: #171d2d;
+  --bg-3: #1d2438;
+  --surface: #171d2d;
+  --surface-2: #1c2336;
+  --purple: #6546e8;
+  --purple-2: #8b6bff;
+  --purple-3: #4a2fd0;
+  --cyan: #08b9c9;
+  --cyan-2: #45e3ef;
+  --green: #19c784;
+  --green-2: #5ff0ad;
+  --gold: #e8b75a;
+  --gold-2: #ffd995;
+  --red: #ff5f6d;
+  --amber: #ffb020;
+
+  --text: #f4f5fa;
+  --text-2: #c3c9d6;
+  --muted: #929cb1;
+  --faint: #67718a;
+
+  --line: rgba(255, 255, 255, 0.075);
+  --line-strong: rgba(255, 255, 255, 0.14);
+  --glass: rgba(255, 255, 255, 0.045);
+  --glass-2: rgba(255, 255, 255, 0.075);
+  --glass-3: rgba(255, 255, 255, 0.11);
+
+  /* Accents per platform */
+  --accent: var(--purple);
+  --accent-2: var(--purple-2);
+  --accent-soft: rgba(101, 70, 232, 0.16);
+  --accent-glow: rgba(101, 70, 232, 0.42);
+  --platform-grad: linear-gradient(135deg, #6546e8 0%, #8b6bff 55%, #08b9c9 120%);
+
+  /* Gradients */
+  --grad-primary: linear-gradient(135deg, #6b4bf0 0%, #8b6bff 60%, #a78bfa 100%);
+  --grad-cyan: linear-gradient(135deg, #08b9c9, #45e3ef);
+  --grad-green: linear-gradient(135deg, #12a86f, #19c784 55%, #5ff0ad);
+  --grad-gold: linear-gradient(135deg, #b8862f, #e8b75a 55%, #ffd995);
+  --grad-text: linear-gradient(100deg, #f4f5fa 10%, #b9aaff 55%, #45e3ef 95%);
+  --grad-surface: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018));
+
+  /* Radii */
+  --r-xs: 8px;
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 18px;
+  --r-xl: 24px;
+  --r-2xl: 32px;
+  --r-pill: 999px;
+
+  /* Spacing (4px scale) */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-7: 32px;
+  --s-8: 40px;
+  --s-9: 48px;
+  --s-10: 64px;
+  --s-11: 80px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 14px 34px -18px rgba(0, 0, 0, 0.85);
+  --shadow-lg: 0 28px 60px -28px rgba(0, 0, 0, 0.95);
+  --shadow-glow: 0 18px 45px -20px var(--accent-glow);
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-1: 120ms;
+  --dur-2: 220ms;
+  --dur-3: 380ms;
+  --dur-4: 620ms;
+
+  /* Layout */
+  --sidebar-w: 268px;
+  --sidebar-w-collapsed: 86px;
+  --topbar-h: 68px;
+  --page-max: 1400px;
+
+  /* Type */
+  --font-latin: "Manrope", "Sora", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Sora", "Manrope", system-ui, sans-serif;
+  --font-arabic: "Cairo", "Tajawal", "Segoe UI", Tahoma, sans-serif;
+
+  --fs-display: clamp(2.4rem, 6vw, 4.6rem);
+  --fs-h1: clamp(1.85rem, 3.4vw, 2.75rem);
+  --fs-h2: clamp(1.4rem, 2.4vw, 1.9rem);
+  --fs-h3: clamp(1.12rem, 1.6vw, 1.3rem);
+  --fs-body: 0.9375rem;
+  --fs-sm: 0.8125rem;
+  --fs-xs: 0.71875rem;
+
+  /* Z */
+  --z-sidebar: 60;
+  --z-topbar: 50;
+  --z-bottomnav: 55;
+  --z-drawer: 80;
+  --z-modal: 100;
+  --z-toast: 120;
+}
+
+/* Platform theming hooks */
+[data-platform="tahady"] {
+  --accent: #19c784;
+  --accent-2: #5ff0ad;
+  --accent-soft: rgba(25, 199, 132, 0.14);
+  --accent-glow: rgba(25, 199, 132, 0.34);
+  --platform-grad: linear-gradient(135deg, #0f6f56 0%, #19c784 55%, #e8b75a 130%);
+}

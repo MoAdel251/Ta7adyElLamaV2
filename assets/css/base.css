@@ -1,0 +1,304 @@
+/* ==========================================================================
+   Base — reset, typography, background, utilities
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-latin);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  font-feature-settings: "ss01", "cv11";
+}
+
+/* Arabic typography */
+html[lang="ar"] body,
+html[lang="ar"] button,
+html[lang="ar"] input,
+html[lang="ar"] select,
+html[lang="ar"] textarea {
+  font-family: var(--font-arabic);
+}
+
+html[lang="ar"] {
+  --font-display: "Cairo", "Tajawal", sans-serif;
+  --fs-body: 0.9375rem;
+  line-height: 1.75;
+}
+
+html[lang="ar"] .display,
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3 {
+  letter-spacing: 0 !important;
+  line-height: 1.35;
+}
+
+/* Ambient arena backdrop */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(900px 620px at 8% -10%, rgba(101, 70, 232, 0.26), transparent 62%),
+    radial-gradient(760px 520px at 96% 4%, rgba(8, 185, 201, 0.14), transparent 60%),
+    radial-gradient(1000px 700px at 55% 118%, rgba(25, 199, 132, 0.1), transparent 65%),
+    var(--bg);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.55;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.023) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.023) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 120% 90% at 50% 0%, #000 20%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 120% 90% at 50% 0%, #000 20%, transparent 78%);
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+::selection {
+  background: rgba(139, 107, 255, 0.38);
+  color: #fff;
+}
+
+/* Scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.14) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.13);
+  border-radius: 99px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+  background-clip: content-box;
+}
+
+/* Type scale */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+
+p { text-wrap: pretty; }
+
+.display {
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  font-weight: 800;
+}
+
+.gradient-text {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.mono {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+
+html[lang="ar"] .eyebrow {
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.muted { color: var(--muted); }
+.text-2 { color: var(--text-2); }
+.small { font-size: var(--fs-sm); }
+.xs { font-size: var(--fs-xs); }
+.strong { font-weight: 700; }
+.center { text-align: center; }
+.nowrap { white-space: nowrap; }
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  inset-block-start: -100px;
+  inset-inline-start: 16px;
+  z-index: 999;
+  padding: 12px 18px;
+  border-radius: var(--r-md);
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  transition: inset-block-start var(--dur-2) var(--ease);
+}
+
+.skip-link:focus {
+  inset-block-start: 16px;
+}
+
+/* Layout helpers */
+.stack { display: flex; flex-direction: column; }
+.row { display: flex; align-items: center; }
+.between { justify-content: space-between; }
+.wrap { flex-wrap: wrap; }
+.gap-1 { gap: var(--s-1); }
+.gap-2 { gap: var(--s-2); }
+.gap-3 { gap: var(--s-3); }
+.gap-4 { gap: var(--s-4); }
+.gap-5 { gap: var(--s-5); }
+.gap-6 { gap: var(--s-6); }
+.grow { flex: 1; min-width: 0; }
+.full { width: 100%; }
+.hide { display: none !important; }
+
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-5); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-5); }
+.grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-4); }
+
+@media (max-width: 1100px) {
+  .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 700px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Accessibility preferences */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html.reduce-motion *,
+html.reduce-motion *::before,
+html.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
